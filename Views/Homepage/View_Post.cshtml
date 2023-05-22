@@ -1,0 +1,98 @@
+﻿@model List<TAH1.Models.Post>
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title> Homepage | The Academic Hub</title>
+    <link rel="stylesheet" href="~/css/Homepage.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="background-video">
+        <video autoplay muted loop>
+            <source src="~/css/Images/bg1.mp4" type="video/mp4">
+            <!-- Include additional source tags for different video formats (e.g., WebM, Ogg) -->
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <nav>
+        <div class="navbar">
+            <i class='bx bx-menu'></i>
+            <div class="logo"><a href="#">The Academic Hub</a></div>
+            <div class="nav-links">
+                <div class="sidebar-logo">
+                    <span class="logo-name">The Academic Hub</span>
+                    <i class='bx bx-x'></i>
+                </div>
+                <ul class="links">
+                    <li>
+                        <a href="./Homepage">HOME</a>
+                    </li>
+                    <li>
+                        <a href="./Profile_Page">Profile</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="search-box">
+                <i class='bx bx-search'></i>
+                <div class="input-box">
+                    <input type="text" placeholder="Search...">
+                </div>
+            </div>
+        </div>
+    </nav>
+    <script src="script.js"></script>
+
+
+
+
+    <div class="container">
+
+    <div class="table-head">
+            <div class="last-reply">
+                <a href="./Post" class="button">GO TO POST</a>
+            </div>
+    </div>
+        <!-- Display posts table -->
+        <div class="posts-table">
+       
+            <div class="box">
+                @if (Model != null && Model.Count > 0)
+                {
+                    <!-- 在视图中显示所有帖子 -->
+                    @foreach (var post in Model)
+                    {
+                        <div class="table-row">
+                            <p>@post.Title</p>
+                            <p>@post.Content</p>
+                            <a id="comment-link" href="./View_Comment"></a>
+                            <button type="submit" class="btn btn-warning pull-right" onclick="comment()">Comment</button>
+                            <script>
+                                function comment() {
+                                    window.location.href = document.getElementById("comment-link").href;
+                                }
+                            </script>
+
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>No post data available.</p>
+                }
+            </div>
+        </div>
+    </div>
+
+
+
+        <div class="pagination">
+            pages: <a href="">1</a><a href="">2</a><a href="">3</a>
+        </div>
+
+</body>
+</html>

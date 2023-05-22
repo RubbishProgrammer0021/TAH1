@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title> Post | The Academic Hub</title>
+    <link rel="stylesheet" href="~/css/Homepage.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/script.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <i class='bx bx-menu'></i>
+            <div class="logo"><a href="#">The Academic Hub</a></div>
+            <div class="nav-links">
+                <div class="sidebar-logo">
+                    <span class="logo-name">The Academic Hub</span>
+                    <i class='bx bx-x'></i>
+                </div>
+                <ul class="links">
+                    <li><a href="./Homepage">HOME</a></li>
+                    <li>
+                        <a href="./Profile_Page">Profile</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="search-box">
+                <i class='bx bx-search'></i>
+                <div class="input-box">
+                    <input type="text" placeholder="Search...">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+        <!--Topic Section-->
+        <div class="topic-container">
+            <!--Original thread-->
+            <div class="head">
+                <div class="authors"></div>
+                <div class="content">Lets post at here ~</div>
+            </div>
+
+            <div class="body">
+                <div class="authors">
+                <form method="POST" action="/Homepage/Post">
+
+                    <div class="form-group">
+                        <label for="Title">Title:</label>
+                        <input type="text" class="form-control" name="Title" id="Title">
+                    </div>
+                    <div class="form-group">
+                        <label for="Content">Content:</label>
+                        <textarea class="form-control" name="Content" id="Content"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-warning pull-right">Post</button>
+                </form>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

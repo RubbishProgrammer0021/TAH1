@@ -1,0 +1,125 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title> Homepage | The Academic Hub</title>
+    <link rel="stylesheet" href="~/css/Homepage.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="background-video">
+        <video autoplay muted loop>
+            <source src="~/css/Images/bg1.mp4" type="video/mp4">
+            <!-- Include additional source tags for different video formats (e.g., WebM, Ogg) -->
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <nav>
+        <div class="navbar1">
+            <i class='bx bx-menu'></i>
+            <div class="logo"><a href="D:\OOP assignment\Main Function Development part\TAH1\Views\Homepage\Homepage.cshtml">The Academic Hub</a></div>
+            <div class="nav-links">
+                <div class="sidebar-logo">
+                    <span class="logo-name">The Academic Hub</span>
+                    <i class='bx bx-x'></i>
+                </div>
+                <ul class="links">
+                    <li>
+                        <a href="Homepage/Profile_Page">Profile</a>
+                        <ul class="js-sub-menu sub-menu"></ul>
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
+                                </li>
+                                <li class="nav-item">
+                                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                        <button type="submit" class="nav-link btn btn-link">Logout</button>
+                                    </form>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " asp-area="Identity" asp-page="/Account/Login">Login</a>
+                                </li>
+                            }
+                        </ul>
+            </div>
+        </div>
+    </nav>
+    <script src="script.js"></script>
+
+    <div class="container">
+        <div class="subforum">
+            <div class="subforum-title">
+                <h1>Homepage</h1>
+            </div>
+            <div class="subforum-row">
+                <div class="subforum-icon subforum-column center">
+                    <i class="fa fa-university"></i>
+                </div>
+                <div class="subforum-description subforum-column">
+                    <h4><a href="Homepage/View_Post">Computer Science</a></h4>
+                    <p>Computer science is the study of computers and computational systems. It involves software development, algorithms, data structures, and computer architecture. It plays a crucial role in technological advancements and has applications in various fields.</p>
+                </div>
+                <div class="subforum-stats subforum-column center">
+                    <span>| 1 Posts |</span>
+                </div>
+                <div class="subforum-info subforum-column">
+                    <b><a href="">Last post</a></b> by <a href="https://genshin-impact.fandom.com/wiki/Alhaitham">Al haitham</a>
+                    <br>on <small>12 Dec 2022</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="subforum">
+            <div class="subforum-row">
+                <div class="subforum-icon subforum-column center">
+                    <i class="fa fa-university"></i>
+                </div>
+                <div class="subforum-description subforum-column">
+                    <h4><a href="Homepage/Subforum_engineering">Engineering</a></h4>
+                    <p>Engineering is the designing, testing and building of machines, structures and processes using maths and science. Studying it can lead to a rewarding career. Engineering is a discipline dedicated to problem solving.</p>
+                </div>
+                <div class="subforum-stats subforum-column center">
+                    <span>| 0 Posts |</span>
+                </div>
+                <div class="subforum-info subforum-column">
+                    <b><a href="">Last post</a></b> by <a href="-">None</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="subforum">
+            <div class="subforum-row">
+                <div class="subforum-icon subforum-column center">
+                    <i class="fa fa-university"></i>
+                </div>
+                <div class="subforum-description subforum-column">
+                    <h4><a href="./Coming">Calculus</a></h4>
+                    <p>Calculus is a branch of mathematics that deals with the study of change and motion through concepts like derivatives and integrals</p>
+                </div>
+                <div class="subforum-stats subforum-column center">
+                    <span>| 0 Posts |</span>
+                </div>
+                <div class="subforum-info subforum-column">
+                    <b><a href="">Last post</a></b> by <a href="-">None</a>
+                </div>
+            </div>
+        </div>
+        
+</div>
+</body>
+</html>
